@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="user" class="org.hyh.core.User">
+		 <property name="name" value="何逸辉"/>
+	</bean>
+	<bean name="AAA" class="org.hyh.core.AAA"/>
+	<bean name="AAAABeanFactoryPostProcessor" class="org.hyh.core.AAAABeanFactoryPostProcessor"/>
+	<!--以上是验证BeanFactoryPostProcessor 对象的使用-->
+
+	 <bean name="StudentFactoryBean" class="org.hyh.core.StudentFactoryBean"/>
+	<!--这里测试的是FactoryBean-->
+
+	<bean class="org.hyh.core.Teacher" name="teacher" depends-on="user">
+		<property name="teacherName" value="小泽老师"/>
+	</bean>
+	<!--测试BeanPostProcessor-->
+
+	<bean class="org.hyh.core.TestAplicationListener" name="aplicationListener"/>
+	<!--测试 事件监听ApplicationListener-->
+
+
+
+</beans>
